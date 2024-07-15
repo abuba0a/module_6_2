@@ -2,29 +2,29 @@ class Vehicle:
     __COLOR_VARIANTS = ['blue', 'red', 'green', 'black', 'white']
 
     def __init__(self, owner, __model, __color, __engine_power):
+        self.new_color = None
+        self.owner = owner
+        self.__model = __model
+        self.__color = __color
+        self.__engine_power = __engine_power
 
-        def get_model(__model):
-            print('Модель: ', __model)
+    def get_model(self):
+        print('Модель: ', self.__model)
 
-        def get_horsepower(__engine_power):
-            print('Мощность двигателя: ', __engine_power)
+    def get_horsepower(self):
+        print('Мощность двигателя: ', self.__engine_power)
 
-        def get_color(__color):
-            print('Цвет: ', __color)
+    def get_color(self):
+        print('Цвет: ', self.__color)
 
-        def print_info():
-            get_model(__model)
-            get_horsepower(__engine_power)
-            get_color(__color)
-            print('Владелец: ', owner)
+    def set_color(self, new_color):
+        self.new_color = new_color
 
-        def set_color(new_color):
-            if new_color.__COLOR_VARIANTS:
-                self__color = new_color
-            else:
-                print('Нельзя сменить цвет на ', new_color)
-
-        print_info()
+    def print_info(self):
+        self.get_model()
+        self.get_horsepower()
+        self.get_color()
+        print('Владелец: ', self.owner)
 
 
 class Sedan(Vehicle):
@@ -33,17 +33,15 @@ class Sedan(Vehicle):
     def __init__(self, owner, __model, __color, __engine_power):
         super().__init__(owner, __model, __color, __engine_power)
 
-    def print_info(self):
-        pass
-
 
 vehicle1 = Sedan('Fedos', 'Toyota Mark II', 'blue', 500)
-print()
 vehicle2 = Sedan('Bob', 'BMW', 'red', 250)
 
 # Изначальные свойства
 vehicle1.print_info()
+print()
 vehicle2.print_info()
+
 
 # Меняем свойства (в т.ч. вызывая методы)
 
@@ -53,4 +51,5 @@ vehicle2.print_info()
 vehicle1.owner = 'Vasyok'
 
 # Проверяем что поменялось
+print()
 vehicle1.print_info()
