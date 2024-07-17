@@ -22,12 +22,12 @@ class Vehicle:
         self.get_color()
         print('Владелец: ', self.owner)
 
-    # def set_color(new_color):
-    #     if str(new_color) in Vehicle.__COLOR_VARIANTS:
-    #         __color = new_color
-    #     else:
-    #         print('Нельзя сменить цвет на ', new_color)
-    #
+    def set_color(new_color):
+        if new_color.casefold() in Vehicle.__COLOR_VARIANTS:
+            __color = new_color
+        else:
+            print('Нельзя сменить цвет на ', new_color)
+
 
 class Sedan(Vehicle):
     __PASSENGERS_LIMIT = 5
@@ -47,8 +47,13 @@ vehicle2.print_info()
 # Меняем свойства (в т.ч. вызывая методы)
 
 
-# set_color('Pink')
-# set_color('BLACK')
+Vehicle.set_color('Pink')
+Vehicle.set_color('BLACK')
+vehicle1.owner = 'Vasyok'
+
+# Проверяем что поменялось
+print()
+vehicle1.print_info()
 vehicle1.owner = 'Vasyok'
 
 # Проверяем что поменялось
